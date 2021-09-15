@@ -1,2 +1,15 @@
 ---
-# tasks file for nginx
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: Ensure that Nginx is installed.
+  apt:
+    name: nginx
+    state: present
+
+- name: Ensure Nginx is started and enabled at boot.
+  service:
+    name: nginx
+    state: started
+    enabled: yes
