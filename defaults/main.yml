@@ -1,2 +1,9 @@
 ---
-# defaults file for nginx
+nginx_dependencies: [gnupg2, ca-certificates, "{{ ansible_distribution | lower }}-keyring"]
+
+nginx_apt_key_id: 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
+nginx_apt_keyring_path: /usr/share/keyrings/nginx-archive-keyring.gpg
+nginx_apt_key_url: https://nginx.org/keys/nginx_signing.key
+
+# You can switch to mainline nginx packages
+nginx_apt_repo_url: "deb [signed-by={{ nginx_apt_keyring_path }}] http://nginx.org/packages/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} nginx/"
