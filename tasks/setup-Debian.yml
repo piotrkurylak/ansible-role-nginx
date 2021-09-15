@@ -1,0 +1,23 @@
+---
+
+- name: Ensure that prerequisites are installed.
+  apt:
+    name: "{{ item }}"
+    state: present
+
+  loop: "{{ nginx_dependencies }}"
+
+# This is used so apt could verify the packages authenticity.
+- name: Add official nginx apt key
+  apt_key:
+    url: "{{ nginx_apt_key_url }}"
+    keyring: "{{ nginx_apt_keyring_path }}"
+    id: "{{ nginx_apt_key_id }}"
+    state: present
+
+- name: Set up nginx apt repository
+  apt_repository:
+    filename: nginx
+    repo: "{{ nginx_apt_repo_url }}"
+    state: present
+    update_cache: yes
