@@ -1,4 +1,4 @@
-## Role Name: Jenkins
+## Role Name: Nginx
 
 Ansible role which allows you to install Nginx on Debian systems.
 
