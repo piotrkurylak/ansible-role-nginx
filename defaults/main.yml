@@ -1,5 +1,5 @@
 ---
-nginx_dependencies: [gnupg2, ca-certificates, "{{ ansible_distribution | lower }}-keyring"]
+nginx_prerequisites: [gnupg2, ca-certificates, debian-archive-keyring]
 
 nginx_apt_key_id: 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
 nginx_apt_keyring_path: /usr/share/keyrings/nginx-archive-keyring.gpg
