@@ -5,7 +5,7 @@
     name: "{{ item }}"
     state: present
 
-  loop: "{{ nginx_dependencies }}"
+  loop: "{{ nginx_prerequisites }}"
 
 # This is used so apt could verify the packages authenticity.
 - name: Add official nginx apt key
